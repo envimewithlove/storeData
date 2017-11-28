@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mLab MongoDB test</title>
+    <link rel='stylesheet' href='../stylesheets/getAllOrders.css' />
+</head>
+<body>
+<div class="container">
+    <h2>Database Results getting Routes </h2>
+    <ul class="table">
+        <li class="table-row">id</li>
+        <li class="table-row">product Name</li>
+        <li class="table-row">Quantity</li>
+        <li class="table-row">Price</li>
+        <%= var total = 0;%> <!-- Price accumulator -->
+        <% results.forEach(function(r) { %>
+            <li class="table-cell">
+                <%= r.productId %>
+            </li>
+            <li class="table-cell">
+                <%= r.productName %>
+            </li>
+            <li class="table-cell">
+                <%= r.qty %>
+            </li>
+            <li class="table-cell">
+                <%= r.price %>
+            </li>
+            <%= total += r.price;%>
+        <% }); %>
+        <br><br>
+    </ul>
+    <h2>Your total comes out to be: <%=${total}%></h2>
+</div>
+</body>
+</html>
